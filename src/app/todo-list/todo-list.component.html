@@ -1,0 +1,23 @@
+<div class="container vh-100">
+  <div class="col">
+    <div class="row sticky-top pt-3">
+      <div class="col-4">
+        <span>오늘의 날씨: 흐림</span>
+      </div>
+      <div class="col">
+        <h1>11.01 (월)</h1>
+      </div>
+    </div>
+    <hr />
+    <div class="col overflow-auto">
+      <app-todo *ngFor="let todo of todoList">{{ todo | json }}</app-todo>
+    </div>
+    <div class="row pt-5">
+      <input
+        type="text"
+        class="form-control fixed-bottom"
+        placeholder="할 일을 입력해주세요"
+      />
+    </div>
+  </div>
+</div>
