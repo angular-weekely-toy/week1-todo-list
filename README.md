@@ -1,2 +1,5 @@
 # week1-todo-list
-todo list + API 사용
+
+## 목표
+
+- todo list + API 사용
