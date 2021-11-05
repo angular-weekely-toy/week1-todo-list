@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Todo } from './shared/todo';
 
@@ -6,42 +8,32 @@ import { Todo } from './shared/todo';
   providedIn: 'root',
 })
 export class TodoService {
-  private id: number = 0;
-  todoList: Todo[] = [];
+  baseUrl = 'http://localhost:3000';
 
-  constructor() {
-    this.push('sample todo1');
-    this.push('sample todo2');
-    this.push('sample todo3');
+  constructor(private http: HttpClient) {}
+
+  //* C
+  addTodo(text: string) {
+    const body = { text };
+    return this.http.post<Todo[]>(`${this.baseUrl}/todo`, body);
   }
 
-  private push(text: string) {
-    this.todoList.push({
-      id: this.id++,
-      text,
-      done: false,
-    });
+  //* R
+  getAllTodo(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this.baseUrl}/todos`);
   }
 
-  add(text: string) {
-    this.push(text);
+  getTodo(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${this.baseUrl}/todo/${id}`);
   }
 
-  getTodos() {
-    return this.todoList;
+  //* P
+  updateTodo(todo: Todo) {
+    return this.http.patch<Todo[]>(`${this.baseUrl}/todo/${todo.id}`, todo);
   }
 
-  getTodo(id: number) {
-    return this.todoList.find((todo) => todo.id === id);
-  }
-
-  remove(id: number) {
-    this.todoList = this.todoList.filter((todo) => todo.id !== id);
-  }
-
-  update(id: number, text: string) {
-    this.todoList = this.todoList.map((todo) =>
-      todo.id === id ? { ...todo, text } : todo
-    );
+  //* D
+  removeTodo(id: number) {
+    return this.http.delete<Todo[]>(`${this.baseUrl}/todo/${id}`);
   }
 }
