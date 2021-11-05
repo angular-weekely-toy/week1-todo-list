@@ -43,3 +43,17 @@
 
 - 한국어 설정
   - https://medium.com/@su_bak/angular-datepipe-%EC%82%AC%EC%9A%A9%EC%8B%9C-%ED%95%9C%EA%B8%80-%EB%82%A0%EC%A7%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-482b8df2dc0c
+
+---
+
+```sh
+# front
+cd front
+ng serve --open
+```
+
+```sh
+# server
+cd server
+npm run start
+```
