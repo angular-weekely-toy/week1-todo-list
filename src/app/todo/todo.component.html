@@ -1,3 +1,10 @@
-<div>
-  <ng-content></ng-content>
-</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="checkbox"
+    name="isDone"
+    formControlName="todoChecked"
+    (change)="changeDone()"
+  />
+  <input type="text" formControlName="todoInput" />
+  <button type="button" (click)="handleRemove()">삭제</button>
+</form>
