@@ -6,13 +6,13 @@
     <div class="weather_wrap">
       <h2>오늘의 날씨</h2>
       흐림
-      mm.dd(w)
+      {{date | date:'MM.dd'}}
     </div>
 
     <!-- 생성 -->
     <section class="create_wrap">
 
-			<form [formGroup]="todoForm" class="create_form" (ngSubmit)="addTodo()">
+      <form [formGroup]="todoForm" class="create_form" (ngSubmit)="addTodo()">
         <div class="create_header">
           <input type="text" formControlName="todo_title" placeholder="해야할 일" #todo_title>
           <button type="submit" class="create_btn">저장</button>

@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Todo } from '../../core/model/todo.model'
@@ -12,12 +11,14 @@ export class MainViewComponent implements OnInit {
 
   todoForm: FormGroup;
   todolist: Todo[];
+  date: Date;
 
   constructor(
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.date = new Date();
 
     if (JSON.parse(localStorage.getItem('ToDoList'))) {
       this.todolist = JSON.parse(localStorage.getItem('ToDoList'));
