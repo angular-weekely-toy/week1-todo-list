@@ -1,0 +1,14 @@
+<div class="list_show">
+  <label for="complete" class="complete">
+    <input type="checkbox" id="complete" [(ngModel)]="todo.todo_finished" (ngModelChange)="test()" />
+    <i></i>
+  </label>
+  <div class="list_title">
+    <p>{{todo.todo_title}}</p>
+  </div>
+</div>
+
+<!-- <div>
+  <button type="button" (click)="editTodo()">수정</button>
+  <button class="deleteBtn" type="button" (click)="deleteTodo()">삭제</button>
+</div> -->

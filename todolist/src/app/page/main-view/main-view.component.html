@@ -1,0 +1,34 @@
+<div class="wrap">
+
+  <main class="todolist_area">
+    <h1 class="hd">TODOLIST!</h1>
+
+    <div class="weather_wrap">
+      <h2>오늘의 날씨</h2>
+      흐림
+      mm.dd(w)
+    </div>
+
+    <!-- 생성 -->
+    <section class="create_wrap">
+
+			<form [formGroup]="todoForm" class="create_form" (ngSubmit)="addTodo()">
+        <div class="create_header">
+          <input type="text" formControlName="todo_title" placeholder="해야할 일" #todo_title>
+          <button type="submit" class="create_btn">저장</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 투두리스트 -->
+    <section class="view_wrap">
+      <ul class="todolist_view">
+        <li class="list" *ngFor="let todo of todolist">
+          <app-todo-form [todo]="todo"></app-todo-form>
+        </li>
+      </ul>
+    </section>
+
+
+  </main>
+</div>
