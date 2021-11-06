@@ -13,7 +13,6 @@ export class TodoFormComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.todo);
-    
   }
 
   deleteTodo() {
